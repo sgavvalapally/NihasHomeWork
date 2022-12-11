@@ -6,13 +6,13 @@
     <title>Page Title</title>
 
     <audio id="audioGreatJob">
-        <source src="content://com.android.externalstorage.documents/document/primary%3ADownload%2FGreatJob.m4a"
+        <source src="../../media/audio/GreatJob.m4a"
             type="audio/mp4">
         Your browser does not support the audio element.
     </audio>
 
     <audio id="audioTryAgain">
-        <source src="content://com.android.externalstorage.documents/document/primary%3ADownload%2FTryAgain.m4a"
+        <source src="../../media/audio/TryAgain.m4a"
             type="audio/mp4">
         Your browser does not support the audio element.
     </audio>
@@ -21,6 +21,9 @@
 
         var audioGreatJobControl = document.getElementById('audioGreatJob');
         var audioTryAgainControl = document.getElementById('audioTryAgain');
+        var workingScript = window.location.pathname;
+        var workingDir = workingScript.substring(0, workingScript.lastIndexOf("/"));
+        //window.alert(workingDir);
 
         function fnSetFields() {
             var vWelcomeMessage = "<h1> Welcome Nihas ! Start your Home Work now";
@@ -32,6 +35,7 @@
             document.getElementById("divMsgWelcome").style.display = "block";
             document.getElementById("divMsgCorrect").style.display = "none";
             document.getElementById("divMsgIncorrect").style.display = "none";
+ 
         }
 
         function fnKeyPadClick(btn_id) {
@@ -84,10 +88,12 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <body onload="fnSetFields();">
+
     <div id="divWelcomeBanner">
         <div class="w3-panel w3-green" style="text-align: center ;" id="divMsgWelcome">
         </div>
     </div>
+
     <div id="divValidationBanner">
         <div class="w3-panel w3-green" style="text-align: center ;" id="divMsgCorrect">
             <h1>Great Job Nihas ! Try this now </h1>
