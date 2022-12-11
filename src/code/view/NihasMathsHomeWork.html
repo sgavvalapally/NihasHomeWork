@@ -3,39 +3,156 @@
 
 <head>
     <link rel="stylesheet" href="../styles/styles.css">
-    <title>Page Title</title>
+    <title>Nihas Home Work - Mathematics </title>
 
     <audio id="audioGreatJob">
-        <source src="../../media/audio/GreatJob.m4a"
-            type="audio/mp4">
+        <source src="../../media/audio/GreatJob.m4a" type="audio/mp4">
         Your browser does not support the audio element.
     </audio>
 
     <audio id="audioTryAgain">
-        <source src="../../media/audio/TryAgain.m4a"
-            type="audio/mp4">
+        <source src="../../media/audio/TryAgain.m4a" type="audio/mp4">
         Your browser does not support the audio element.
     </audio>
 
     <script type="text/javascript" src="../controller/main.js"></script>
+    <script type="text/javascript" src="../controller/randomizer.js"></script>
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<body onload="fnSetFields();">
-
+<body onload="fnSetFields(null);">
+    <div id="divHidden" style="display:none;">
+        <label id="lblIsFirstTimeLoaded">False</label>
+        <label id="lblTotalQuestions">0</label>
+        <label id="lblAnsweredCorrectly">0</label>
+    </div>
     <div id="divWelcomeBanner">
         <div class="w3-panel w3-green" style="text-align: center ;" id="divMsgWelcome">
         </div>
     </div>
 
+    <div id="divSettings">
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <input type="checkbox" id="chkAdditions" name="chkAdditions" value="Additions">
+                    <label for="chkAdditions"> Additions </label>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkAddLvlSimple" name="chkAddLvl" value="Simple">
+                    <label for="chkAddLvlSimple">Simple</label>
+                    <input type="text" id="txtAddLvlSimple"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkAddLvlMedium" name="chkAddLvl" value="Medium">
+                    <label for="chkAddLvlMedium">Medium</label>
+                    <input type="text" id="txtAddLvlMedium"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkAddLvlComplex" name="chkAddLvl" value="Complex">
+                    <label for="chkAddLvlComplex">Complex</label>
+                    <input type="text" id="txtAddLvlComplex"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkAddLvlTough" name="chkAddLvl" value="Tough">
+                    <label for="chkAddLvlTough">Tough</label>
+                    <input type="text" id="txtAddLvlTough"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td rowspan="4" style="vertical-align: middle ;">
+                    <input id="btnSubmitSettings" type="submit" value="Submit" onclick="fnSubmitSettings(this.id)">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="chkSubtractions" name="chkSubtractions" value="Subtractions">
+                    <label for="chkSubtractions"> Subtractions </label>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkSubtractLvlSimple" name="chkSubtractLvl" value="Simple">
+                    <label for="chkSubtractLvlSimple">Simple</label>
+                    <input type="text" id="txtSubtractLvlSimple"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkSubtractLvlMedium" name="chkSubtractLvl" value="Medium">
+                    <label for="chkSubtractLvlMedium">Medium</label>
+                    <input type="text" id="txtSubtractLvlMedium"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkSubtractLvlComplex" name="chkSubtractLvl" value="Complex">
+                    <label for="chkSubtractLvlComplex">Complex</label>
+                    <input type="text" id="txtSubtractLvlComplex"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkSubtractLvlTough" name="chkSubtractLvl" value="Tough">
+                    <label for="chkSubtractLvlTough">Tough</label>
+                    <input type="text" id="txtSubtractLvlTough"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="chkMultiplications" name="chkMultiplications" value="Multiplications">
+                    <label for="chkMultiplications"> Multiplications </label>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkMultiLvlSimple" name="chkMultiLvl" value="Simple">
+                    <label for="chkMultiLvlSimple">Simple</label>
+                    <input type="text" id="txtMultiLvlSimple"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkMultiLvlMedium" name="chkMultiLvl" value="Medium">
+                    <label for="chkMultiLvlMedium">Medium</label>
+                    <input type="text" id="txtMultiLvlMedium"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkMultiLvlComplex" name="chkMultiLvl" value="Complex">
+                    <label for="chkMultiLvlComplex">Complex</label>
+                    <input type="text" id="txtMultiLvlComplex"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+                <td>
+                    <input type="checkbox" id="chkMultiLvlTough" name="chkMultiLvl" value="Tough">
+                    <label for="chkMultiLvlTough">Tough</label>
+                    <input type="text" id="txtMultiLvlTough"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <div id="divValidationBanner">
-        <div class="w3-panel w3-green" style="text-align: center ;" id="divMsgCorrect">
-            <h1>Great Job Nihas ! Try this now </h1>
+        <div class="w3-panel w3-green" style="align-items: center;" id="divMsgCorrect">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="align-items: left;">
+                        <h1>Great Job Nihas ! Try this now </h1>
+                    </td>
+                    <td style="align-items: right;" id="tdScoreCorrect">
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="w3-panel w3-red" style="text-align: center ;" id="divMsgIncorrect">
-            <h1>Oh no ! Please try again Nihas</h1>
+            <table style="width: 100%;">
+                <tr>
+                    <td style="align-items: left;">
+                        <h1>Oh no ! Please try again Nihas</h1>
+                    </td>
+                    <td style="align-items: right;" id="tdScoreIncorrect">
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 
@@ -43,10 +160,10 @@
         <table>
             <tr>
                 <td id="fieldA"></td>
-                <td>+</td>
+                <td id="tdOperation"><label id="lblOperator"></label></td>
                 <td id="fieldB"></td>
                 <td>=</td>
-                <td>
+                <td id="tdResult">
                     <input type="text" id="txtResult" readonly>
                 </td>
             </tr>
@@ -71,7 +188,7 @@
                 <td><input id="btn9" type="submit" value="9" onclick="fnKeyPadClick(this.id)"></td>
                 <td><input id="btn0" type="submit" value="0" onclick="fnKeyPadClick(this.id)"></td>
                 <td><input id="btnNeg" type="submit" value="(-)" onclick="fnKeyPadClick(this.id)"></td>
-                <td><input id="btnSubmit" type="submit" value="Submit" onclick="fnValidateResult()"></td>
+                <td><input id="btnSubmit" type="submit" value="Submit" onclick="fnValidateResult(this.id)"></td>
             </tr>
         </table>
     </div>
