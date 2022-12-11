@@ -5,7 +5,12 @@
     color: #000000;
 }
 
-input[type=text] {
+input[type=text]{
+    height: 25px;
+    width: 50px;
+}
+
+#txtResult {
     height: 250px;
     width: 450px;
     color: black;
@@ -58,3 +63,10 @@ input[type=reset] {
     color: white;
 }
 
+#btnSubmitSettings {
+    background-color: #4CAF50;
+    height:50px; width:200px;
+    font-size: 25px;
+    color: white;
+    font-weight: normal;
+}
