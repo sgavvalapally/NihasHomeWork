@@ -1,0 +1,60 @@
+.CalculationText td {
+    font-size: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #000000;
+}
+
+input[type=text] {
+    height: 250px;
+    width: 450px;
+    color: black;
+    font-size: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    outline: 0;
+    border-width: 0 0 5px;
+    border-color: black;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: #555555;
+    border: none;
+    color: white;
+    height:75px; width:150px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+#btnNeg {
+    background-color: #1536a45a;
+    font-size: 25px;
+}
+
+#btnX {
+    background-color: #ee28095a;
+    font-size: 25px;
+}
+
+#btnClear {
+    background-color: #f44336;
+    height:75px; width:250px;
+    font-size: 25px;
+    color: white;
+}
+
+#btnSubmit {
+    background-color: #4CAF50;
+    height:75px; width:250px;
+    font-size: 25px;
+    color: white;
+}
+
