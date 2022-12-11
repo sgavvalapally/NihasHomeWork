@@ -1,0 +1,51 @@
+.CalculationText td {
+    font-size: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #000000;
+}
+
+input[type=text] {
+    height: 250px;
+    width: 450px;
+    color: black;
+    font-size: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#btnClear {
+    background-color: #f44336;
+    padding: 15px 75px;
+}
+
+#btnSubmit {
+    background-color: #4CAF50;
+    padding: 15px 75px;
+}
+
+input[type=text] {
+    outline: 0;
+    border-width: 0 0 5px;
+    border-color: black
+}
+
+input[type=text]:focus {
+    border-color: blue
+}
