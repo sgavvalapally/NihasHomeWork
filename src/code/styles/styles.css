@@ -12,6 +12,9 @@ input[type=text] {
     font-size: 200px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+    outline: 0;
+    border-width: 0 0 5px;
+    border-color: black;
 }
 
 input[type=button],
@@ -20,32 +23,38 @@ input[type=reset] {
     background-color: #555555;
     border: none;
     color: white;
-    padding: 15px 50px;
+    height:75px; width:150px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 25px;
+    font-size: 50px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 12px;
+}
+
+#btnNeg {
+    background-color: #1536a45a;
+    font-size: 25px;
+}
+
+#btnX {
+    background-color: #ee28095a;
+    font-size: 25px;
 }
 
 #btnClear {
     background-color: #f44336;
-    padding: 15px 75px;
+    height:75px; width:250px;
+    font-size: 25px;
+    color: white;
 }
 
 #btnSubmit {
     background-color: #4CAF50;
-    padding: 15px 75px;
+    height:75px; width:250px;
+    font-size: 25px;
+    color: white;
 }
 
-input[type=text] {
-    outline: 0;
-    border-width: 0 0 5px;
-    border-color: black
-}
-
-input[type=text]:focus {
-    border-color: blue
-}

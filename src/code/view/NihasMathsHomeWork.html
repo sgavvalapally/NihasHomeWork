@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Page Title</title>
+
+    <audio id="audioGreatJob">
+        <source src="../../media/audio/GreatJob.m4a"
+            type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="audioTryAgain">
+        <source src="../../media/audio/TryAgain.m4a"
+            type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script type="text/javascript" src="../controller/main.js"></script>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body onload="fnSetFields();">
+
+    <div id="divWelcomeBanner">
+        <div class="w3-panel w3-green" style="text-align: center ;" id="divMsgWelcome">
+        </div>
+    </div>
+
+    <div id="divValidationBanner">
+        <div class="w3-panel w3-green" style="text-align: center ;" id="divMsgCorrect">
+            <h1>Great Job Nihas ! Try this now </h1>
+        </div>
+        <div class="w3-panel w3-red" style="text-align: center ;" id="divMsgIncorrect">
+            <h1>Oh no ! Please try again Nihas</h1>
+        </div>
+    </div>
+
+    <div id="divCalculationFields" class="CalculationText">
+        <table>
+            <tr>
+                <td id="fieldA"></td>
+                <td>+</td>
+                <td id="fieldB"></td>
+                <td>=</td>
+                <td>
+                    <input type="text" id="txtResult" readonly>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="divKeyPad" style="margin:0 auto;">
+        <table>
+            <tr>
+                <td><input id="btn1" type="submit" value="1" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btn2" type="submit" value="2" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btn3" type="submit" value="3" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btn4" type="submit" value="4" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btn5" type="submit" value="5" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btnX" type="submit" value="<-" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btnClear" type="submit" value="Clear" onclick="fnKeyPadClick(this.id)"></td>
+            </tr>
+            <tr>
+                <td><input id="btn6" type="submit" value="6" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btn7" type="submit" value="7" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btn8" type="submit" value="8" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btn9" type="submit" value="9" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btn0" type="submit" value="0" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btnNeg" type="submit" value="(-)" onclick="fnKeyPadClick(this.id)"></td>
+                <td><input id="btnSubmit" type="submit" value="Submit" onclick="fnValidateResult()"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
