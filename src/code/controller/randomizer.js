@@ -1,108 +1,106 @@
-function fnRandomizer_SetFields(caller_id)
-{
+function fnRandomizer_SetFields(caller_id) {
     var vA = null;
     var vB = null;
+
+    const arSel = [];
 
     var ischkAdditions = document.getElementById("chkAdditions").checked;
     var ischkSubtractions = document.getElementById("chkSubtractions").checked;
     var ischkMultiplications = document.getElementById("chkMultiplications").checked;
-    // window.alert("ischkAdditions");
-    if(ischkAdditions)
-    {
-        var ischkAddLvlSimple = document.getElementById("chkAddLvlSimple").checked;
-        var ischkAddLvlMedium = document.getElementById("chkAddLvlMedium").checked;
-        var ischkAddLvlComplex = document.getElementById("chkAddLvlComplex").checked;
-        var ischkAddLvlTough = document.getElementById("chkAddLvlTough").checked;
 
-        switch (true) {
-            case ischkAddLvlTough:
-                vA = Math.floor(Math.random() * 1000);
-                vB = Math.floor(Math.random() * 1000);
-                break;
-            case ischkAddLvlComplex:
-                vA = Math.floor(Math.random() * 101);
-                vB = Math.floor(Math.random() * 101);
-                break;
-            case ischkAddLvlMedium:
-                vA = Math.floor(Math.random() * 11);
-                vB = Math.floor(Math.random() * 11);
-                break;
-            case ischkAddLvlSimple:
-                vA = Math.floor(Math.random() * 6);
-                vB = Math.floor(Math.random() * 6);
-                break;
-            default:
-                break;
-        }
-        document.getElementById("lblOperator").innerText = "+";
-     }
+    if (document.getElementById("chkAddLvlSimple").checked) { arSel.push("AS"); }
+    if (document.getElementById("chkAddLvlMedium").checked) { arSel.push("AM"); }
+    if (document.getElementById("chkAddLvlComplex").checked) { arSel.push("AC"); }
+    if (document.getElementById("chkAddLvlTough").checked) { arSel.push("AT"); }
 
-     if(ischkSubtractions)
-     {
-        var ischkSubtractLvlSimple = document.getElementById("chkSubtractLvlSimple").checked;
-        var ischkSubtractLvlMedium = document.getElementById("chkSubtractLvlMedium").checked;
-        var ischkSubtractLvlComplex = document.getElementById("chkSubtractLvlComplex").checked;
-        var ischkSubtractLvlTough = document.getElementById("chkSubtractLvlTough").checked;
+    if (document.getElementById("chkSubtractLvlSimple").checked) { arSel.push("SS"); }
+    if (document.getElementById("chkSubtractLvlMedium").checked) { arSel.push("SM"); }
+    if (document.getElementById("chkSubtractLvlComplex").checked) { arSel.push("SC"); }
+    if (document.getElementById("chkSubtractLvlTough").checked) { arSel.push("ST"); }
 
-        switch (true) {
-            case ischkSubtractLvlTough:
-                vA = Math.floor(Math.random() * 1000);
-                vB = Math.floor(Math.random() * 1000);
-                break;
-            case ischkSubtractLvlComplex:
-                vA = Math.floor(Math.random() * 101);
-                vB = Math.floor(Math.random() * 101);
-                break;
-            case ischkSubtractLvlMedium:
-                vA = Math.floor(Math.random() * 21);
-                vB = Math.floor(Math.random() * 21);
-                break;
-            case ischkSubtractLvlSimple:
-                vA = Math.floor(Math.random() * 6);
-                vB = Math.floor(Math.random() * 6);
-                break;
-            default:
-                break;
-        }
-        document.getElementById("lblOperator").innerText = "-";
-     }
+    if (document.getElementById("chkMultiLvlSimple").checked) { arSel.push("MS"); }
+    if (document.getElementById("chkMultiLvlMedium").checked) { arSel.push("MM"); }
+    if (document.getElementById("chkMultiLvlComplex").checked) { arSel.push("MC"); }
+    if (document.getElementById("chkMultiLvlTough").checked) { arSel.push("MT"); }
 
-     if(ischkMultiplications)
-     {
-        var ischkMultiLvlSimple = document.getElementById("chkMultiLvlSimple").checked;
-        var ischkMultiLvlMedium = document.getElementById("chkMultiLvlMedium").checked;
-        var ischkMultiLvlComplex = document.getElementById("chkMultiLvlComplex").checked;
-        var ischkMultiLvlTough = document.getElementById("chkMultiLvlTough").checked;
+    if (arSel.length > 0) {
+        var vIndex = Math.floor(Math.random() * arSel.length);
+        var vChoice = arSel[vIndex];
+    }
 
-        switch (true) {
-            case ischkMultiLvlTough:
-                vA = Math.floor(Math.random() * 21);
-                vB = Math.floor(Math.random() * 11);
-                break;
-            case ischkMultiLvlComplex:
-                vA = Math.floor(Math.random() * 11);
-                vB = Math.floor(Math.random() * 11);
-                break;
-            case ischkMultiLvlMedium:
-                vA = Math.floor(Math.random() * 6);
-                vB = Math.floor(Math.random() * 11);
-                break;
-            case ischkMultiLvlSimple:
-                vA = Math.floor(Math.random() * 4);
-                vB = Math.floor(Math.random() * 11);
-                break;
-            default:
-                break;
-        }
-        document.getElementById("lblOperator").innerText = "x";
-     }
-    
+    switch (vChoice) {
+        case "AT":
+            vA = Math.floor(Math.random() * 1000);
+            vB = Math.floor(Math.random() * 1000);
+            document.getElementById("lblOperator").innerText = "+";
+            break;
+        case "AC":
+            vA = Math.floor(Math.random() * 101);
+            vB = Math.floor(Math.random() * 101);
+            document.getElementById("lblOperator").innerText = "+";
+            break;
+        case "AM":
+            vA = Math.floor(Math.random() * 11);
+            vB = Math.floor(Math.random() * 11);
+            document.getElementById("lblOperator").innerText = "+";
+            break;
+        case "AS":
+            vA = Math.floor(Math.random() * 6);
+            vB = Math.floor(Math.random() * 6);
+            document.getElementById("lblOperator").innerText = "+";
+            break;
+        case "ST":
+            vA = Math.floor(Math.random() * 1000);
+            vB = Math.floor(Math.random() * 1000);
+            document.getElementById("lblOperator").innerText = "-";
+            break;
+        case "SC":
+            vA = Math.floor(Math.random() * 101);
+            vB = Math.floor(Math.random() * 101);
+            document.getElementById("lblOperator").innerText = "-";
+            break;
+        case "SM":
+            vA = Math.floor(Math.random() * 21);
+            vB = Math.floor(Math.random() * 21);
+            document.getElementById("lblOperator").innerText = "-";
+            break;
+        case "SS":
+            vA = Math.floor(Math.random() * 6);
+            vB = Math.floor(Math.random() * 6);
+            document.getElementById("lblOperator").innerText = "-";
+            break;
+        case "MT":
+            vA = Math.floor(Math.random() * 21);
+            vB = Math.floor(Math.random() * 11);
+            break;
+        case "MC":
+            vA = Math.floor(Math.random() * 11);
+            vB = Math.floor(Math.random() * 11);
+            break;
+        case "MM":
+            vA = Math.floor(Math.random() * 6);
+            vB = Math.floor(Math.random() * 11);
+            break;
+        case "MS":
+            vA = Math.floor(Math.random() * 4);
+            vB = Math.floor(Math.random() * 11);
+            break;
+        default:
+            break;
+    }
+
     document.getElementById("txtResult").value = "";
-    document.getElementById("fieldA").innerHTML = vA;
-    document.getElementById("fieldB").innerHTML = vB;
 
-    if(caller_id !="btnSubmitSettings")
-    {
+    if (document.getElementById("lblOperator").innerText == "-" && parseInt(vA) < parseInt(vB)) {
+        document.getElementById("fieldA").innerHTML = vB;
+        document.getElementById("fieldB").innerHTML = vA;
+    }
+    else {
+        document.getElementById("fieldA").innerHTML = vA;
+        document.getElementById("fieldB").innerHTML = vB;
+    }
+
+    if (caller_id != "btnSubmitSettings") {
         document.getElementById("lblTotalQuestions").innerText = parseInt(document.getElementById("lblTotalQuestions").innerText) + 1;
     }
 }

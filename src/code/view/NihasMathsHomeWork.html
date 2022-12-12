@@ -28,14 +28,12 @@
         <label id="lblTotalQuestions">0</label>
         <label id="lblAnsweredCorrectly">0</label>
     </div>
-    <div id="divWelcomeBanner">
-        <div class="w3-panel w3-green" style="text-align: center ;" id="divMsgWelcome">
-        </div>
+    <div id="divMsgWelcome" class="w3-panel w3-green" style="width: 100%; text-align: center ;padding:0px;">
     </div>
-
-    <div id="divSettings">
-        <table style="width:100%">
-            <tr>
+    <div id="divSettings" style="width: 100%;">
+        <br><br>
+        <table id="tblSettings" align="center">
+            <tr style="height: 50px;">
                 <td>
                     <input type="checkbox" id="chkAdditions" name="chkAdditions" value="Additions">
                     <label for="chkAdditions"> Additions </label>
@@ -64,11 +62,8 @@
                     <input type="text" id="txtAddLvlTough"
                         onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
-                <td rowspan="4" style="vertical-align: middle ;">
-                    <input id="btnSubmitSettings" type="submit" value="Submit" onclick="fnSubmitSettings(this.id)">
-                </td>
             </tr>
-            <tr>
+            <tr style="height: 50px;">
                 <td>
                     <input type="checkbox" id="chkSubtractions" name="chkSubtractions" value="Subtractions">
                     <label for="chkSubtractions"> Subtractions </label>
@@ -98,7 +93,7 @@
                         onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
             </tr>
-            <tr>
+            <tr style="height: 50px;">
                 <td>
                     <input type="checkbox" id="chkMultiplications" name="chkMultiplications" value="Multiplications">
                     <label for="chkMultiplications"> Multiplications </label>
@@ -129,16 +124,20 @@
                 </td>
             </tr>
         </table>
+        <div style="width: 100%; text-align: center;">
+            <br><br>
+            <input id="btnSubmitSettings" type="submit" value="Submit" onclick="fnSubmitSettings(this.id)">
+        </div>
     </div>
 
     <div id="divValidationBanner">
         <div class="w3-panel w3-green" style="align-items: center;" id="divMsgCorrect">
             <table style="width: 100%;">
                 <tr>
-                    <td style="align-items: left;">
+                    <td style="align-items: left; width: 80%;">
                         <h1>Great Job Nihas ! Try this now </h1>
                     </td>
-                    <td style="align-items: right;" id="tdScoreCorrect">
+                    <td style="align-items: right; width: 20%;" id="tdScoreCorrect">
                     </td>
                 </tr>
             </table>
@@ -146,10 +145,10 @@
         <div class="w3-panel w3-red" style="text-align: center ;" id="divMsgIncorrect">
             <table style="width: 100%;">
                 <tr>
-                    <td style="align-items: left;">
+                    <td style="align-items: left; width: 80%;">
                         <h1>Oh no ! Please try again Nihas</h1>
                     </td>
-                    <td style="align-items: right;" id="tdScoreIncorrect">
+                    <td style="align-items: right; width: 20%;" id="tdScoreIncorrect">
                     </td>
                 </tr>
             </table>
@@ -157,20 +156,21 @@
     </div>
 
     <div id="divCalculationFields" class="CalculationText">
-        <table>
+        <table style="width: 100%; text-align: center;">
             <tr>
-                <td id="fieldA"></td>
-                <td id="tdOperation"><label id="lblOperator"></label></td>
-                <td id="fieldB"></td>
-                <td>=</td>
-                <td id="tdResult">
+                <td id="fieldA" style="width: 30%;"></td>
+                <td id="tdOperation" style="width: 5%;"><label id="lblOperator"></label></td>
+                <td id="fieldB" style="width: 30%;"></td>
+                <td style="width: 5%;">=</td>
+                <td id="tdResult" style="width: 30%;">
                     <input type="text" id="txtResult" readonly>
                 </td>
             </tr>
         </table>
     </div>
 
-    <div id="divKeyPad" style="margin:0 auto;">
+    <div id="divKeyPad" style="margin:0 auto; width: 100%;" align="center">
+        <br>
         <table>
             <tr>
                 <td><input id="btn1" type="submit" value="1" onclick="fnKeyPadClick(this.id)"></td>
