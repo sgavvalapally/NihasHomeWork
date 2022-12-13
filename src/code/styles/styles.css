@@ -10,7 +10,7 @@
 
 #tblSettings {
     width: 95%;
-    background-color: rgb(151, 158, 158);
+    background-color: rgb(134, 124, 110);
     border: 1px solid black;
     border-radius: 12px;
     font-size: 20px;
@@ -34,7 +34,7 @@ input[type=checkbox] {
 
 input[type=text] {
     height: 25px;
-    width: 50px;
+    width: 75px;
 }
 
 #txtResult {
@@ -53,7 +53,7 @@ input[type=text] {
 input[type=button],
 input[type=submit],
 input[type=reset] {
-    background-color: #555555;
+    background-color: #696969;
     border: none;
     color: white;
     height: 75px;
@@ -63,18 +63,45 @@ input[type=reset] {
     display: inline-block;
     font-size: 50px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
+    font-weight: normal;
     cursor: pointer;
     border-radius: 12px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] :active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
 }
 
 #btnNeg {
-    background-color: #1536a45a;
+    background-color: #708090;
     font-size: 25px;
 }
 
 #btnX {
-    background-color: #ee28095a;
+    background-color: #696969;
+    border: none;
+    color: white;
+    height: 75px;
+    width: 150px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: #FA8072;
     font-size: 25px;
 }
 
@@ -87,7 +114,7 @@ input[type=reset] {
 }
 
 #btnSubmit {
-    background-color: #4CAF50;
+    background-color: #20B2AA;
     height: 75px;
     width: 250px;
     font-size: 25px;
@@ -95,7 +122,7 @@ input[type=reset] {
 }
 
 #btnSubmitSettings {
-    background-color: #4CAF50;
+    background-color: #20B2AA;
     height: 50px;
     width: 200px;
     font-size: 25px;
