@@ -1,8 +1,50 @@
 var audioGreatJobControl = document.getElementById('audioGreatJob');
 var audioTryAgainControl = document.getElementById('audioTryAgain');
+var audioaudioCompletedHWControl = document.getElementById('audioCompletedHW');
 var workingScript = window.location.pathname;
 var workingDir = workingScript.substring(0, workingScript.lastIndexOf("/"));
 //window.alert(workingDir);
+
+function fnCalculateQuestionsLimit() {
+    var vQLimit = 0;
+
+    if (document.getElementById("txtAS").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtAS").value);
+
+    if (document.getElementById("txtAC").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtAC").value);
+
+    if (document.getElementById("txtAT").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtAT").value);
+
+    if (document.getElementById("txtAM").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtAM").value);
+
+    if (document.getElementById("txtSS").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtSS").value);
+
+    if (document.getElementById("txtSM").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtSM").value);
+
+    if (document.getElementById("txtSC").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtSC").value);
+
+    if (document.getElementById("txtST").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtST").value);
+    if (document.getElementById("txtMS").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtMS").value);
+
+    if (document.getElementById("txtMM").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtMM").value);
+
+    if (document.getElementById("txtMC").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtMC").value);
+
+    if (document.getElementById("txtMT").value != "")
+        vQLimit = vQLimit + parseInt(document.getElementById("txtMT").value);
+
+    document.getElementById("lblQlimit").innerText = vQLimit;
+}
 
 function fnSetFields(caller_id) {
     if (document.getElementById("lblIsFirstTimeLoaded").innerText == "False") {
@@ -20,53 +62,80 @@ function fnSetFields(caller_id) {
     }
 }
 
+function fnOnComplexitySelection() {
+    var ischkAS = document.getElementById("chkAS").checked;
+    var ischkAM = document.getElementById("chkAM").checked;
+    var ischkAC = document.getElementById("chkAC").checked;
+    var ischkAT = document.getElementById("chkAT").checked;
+    var ischkSS = document.getElementById("chkSS").checked;
+    var ischkSM = document.getElementById("chkSM").checked;
+    var ischkSC = document.getElementById("chkSC").checked;
+    var ischkST = document.getElementById("chkST").checked;
+    var ischkMS = document.getElementById("chkMS").checked;
+    var ischkMM = document.getElementById("chkMM").checked;
+    var ischkMC = document.getElementById("chkMC").checked;
+    var ischkMT = document.getElementById("chkMT").checked;
+
+    if (ischkAS || ischkAM || ischkAC || ischkAT)
+        document.getElementById("chkAdditions").checked = true;
+
+    if (!ischkAS && !ischkAM && !ischkAC && !ischkAT)
+        document.getElementById("chkAdditions").checked = false;
+
+    if (ischkSS || ischkSM || ischkSC || ischkST)
+        document.getElementById("chkSubtractions").checked = true;
+
+    if (!ischkSS && !ischkSM && !ischkSC && !ischkST)
+        document.getElementById("chkSubtractions").checked = false;
+
+    if (ischkMS || ischkMM || ischkMC || ischkMT)
+        document.getElementById("chkMultiplications").checked = false;
+
+    if (!ischkMS && !ischkMM && !ischkMC && !ischkMT)
+        document.getElementById("chkMultiplications").checked = false;
+}
+
 function fnValidateSettings() {
     var ischkAdditions = document.getElementById("chkAdditions").checked;
     var ischkSubtractions = document.getElementById("chkSubtractions").checked;
     var ischkMultiplications = document.getElementById("chkMultiplications").checked;
+    var ischkAS = document.getElementById("chkAS").checked;
+    var ischkAM = document.getElementById("chkAM").checked;
+    var ischkAC = document.getElementById("chkAC").checked;
+    var ischkAT = document.getElementById("chkAT").checked;
+    var ischkSS = document.getElementById("chkSS").checked;
+    var ischkSM = document.getElementById("chkSM").checked;
+    var ischkSC = document.getElementById("chkSC").checked;
+    var ischkST = document.getElementById("chkST").checked;
+    var ischkMS = document.getElementById("chkMS").checked;
+    var ischkMM = document.getElementById("chkMM").checked;
+    var ischkMC = document.getElementById("chkMC").checked;
+    var ischkMT = document.getElementById("chkMT").checked;
+
     var vResult = true;
 
     if (!(ischkAdditions || ischkSubtractions || ischkMultiplications)) {
         window.alert("Dear Parent, you have not made any selection !");
         vResult = false;
     }
-
-    if (ischkAdditions) {
-        var ischkAddLvlSimple = document.getElementById("chkAddLvlSimple").checked;
-        var ischkAddLvlMedium = document.getElementById("chkAddLvlMedium").checked;
-        var ischkAddLvlComplex = document.getElementById("chkAddLvlComplex").checked;
-        var ischkAddLvlTough = document.getElementById("chkAddLvlTough").checked;
-
-        if (!(ischkAddLvlSimple || ischkAddLvlMedium || ischkAddLvlComplex || ischkAddLvlTough)) {
+    else if (ischkAdditions) {
+        if (!(ischkAS || ischkAM || ischkAC || ischkAT)) {
             window.alert("Dear Parent, you have not selected the complexity for Additions !");
             vResult = false;
         }
     }
-
-    if (ischkSubtractions) {
-        var ischkSubtractLvlSimple = document.getElementById("chkSubtractLvlSimple").checked;
-        var ischkSubtractLvlMedium = document.getElementById("chkSubtractLvlMedium").checked;
-        var ischkSubtractLvlComplex = document.getElementById("chkSubtractLvlComplex").checked;
-        var ischkSubtractLvlTough = document.getElementById("chkSubtractLvlTough").checked;
-
-        if (!(ischkSubtractLvlSimple || ischkSubtractLvlMedium || ischkSubtractLvlComplex || ischkSubtractLvlTough)) {
+    else if (ischkSubtractions) {
+        if (!(ischkSS || ischkSM || ischkSC || ischkST)) {
             window.alert("Dear Parent, you have not selected the complexity for Subtractions !");
             vResult = false;
         }
     }
-
-    if (ischkMultiplications) {
-        var ischkMultiLvlSimple = document.getElementById("chkMultiLvlSimple").checked;
-        var ischkMultiLvlMedium = document.getElementById("chkMultiLvlMedium").checked;
-        var ischkMultiLvlComplex = document.getElementById("chkMultiLvlComplex").checked;
-        var ischkMultiLvlTough = document.getElementById("chkMultiLvlTough").checked;
-
-        if (!(ischkMultiLvlSimple || ischkMultiLvlMedium || ischkMultiLvlComplex || ischischkMultiLvlToughkSubtractLvlTough)) {
+    else if (ischkMultiplications) {
+        if (!(ischkMS || ischkMM || ischkMC || ischischkMTkSubtractLvlTough)) {
             window.alert("Dear Parent, you have not selected the complexity for Mutliplications !");
             vResult = false;
         }
     }
-
     return vResult;
 }
 
@@ -88,6 +157,7 @@ function fnSubmitSettings(caller_id) {
     document.getElementById("divMsgIncorrect").style.display = "none";
     document.getElementById("divKeyPad").style.display = "block";
 
+    fnCalculateQuestionsLimit();
     fnSetFields(caller_id);
 }
 
@@ -149,10 +219,50 @@ function fnValidateResult(caller_id) {
 
     if (parseInt(vUserAnswer) == parseInt(vCorrectAnswer)) {
         fnSetFields();
+
+        var vQCount = parseInt(document.getElementById("lblAS").innerText) +
+            parseInt(document.getElementById("lblAM").innerText) +
+            parseInt(document.getElementById("lblAC").innerText) +
+            parseInt(document.getElementById("lblAT").innerText) +
+            parseInt(document.getElementById("lblSS").innerText) +
+            parseInt(document.getElementById("lblSM").innerText) +
+            parseInt(document.getElementById("lblSC").innerText) +
+            parseInt(document.getElementById("lblST").innerText) +
+            parseInt(document.getElementById("lblMS").innerText) +
+            parseInt(document.getElementById("lblMM").innerText) +
+            parseInt(document.getElementById("lblMC").innerText) +
+            parseInt(document.getElementById("lblMT").innerText)
+            ;
+
+
+
+        document.getElementById("lblAnsweredCorrectly").innerText = parseInt(document.getElementById("lblAnsweredCorrectly").innerText) + 1;
         document.getElementById("divMsgCorrect").style.display = "block";
         document.getElementById("divMsgIncorrect").style.display = "none";
-        document.getElementById("lblAnsweredCorrectly").innerText = parseInt(document.getElementById("lblAnsweredCorrectly").innerText) + 1;
+        
+        vQLimit = parseInt(document.getElementById("lblQlimit").innerText);
+        if (vQLimit != 0 && parseInt(document.getElementById("lblAnsweredCorrectly").innerText) == vQLimit) {
+            document.getElementById("lblMsgCorrect").innerText = "Great Job Nihas ! You have completed your Home Work";
+            document.getElementById("btnSubmit").disabled=true;
+            document.getElementById("btnClear").disabled=true;
+            document.getElementById("btnNeg").disabled=true;
+            document.getElementById("btn1").disabled=true;
+            document.getElementById("btn2").disabled=true;
+            document.getElementById("btn3").disabled=true;
+            document.getElementById("btn4").disabled=true;
+            document.getElementById("btn5").disabled=true;
+            document.getElementById("btn6").disabled=true;
+            document.getElementById("btn7").disabled=true;
+            document.getElementById("btn8").disabled=true;
+            document.getElementById("btn9").disabled=true;
+            document.getElementById("btn0").disabled=true;
+            document.getElementById("btnX").disabled=true;
+            audioaudioCompletedHWControl.play()
+        }
+        else
+        {
         audioGreatJobControl.play();
+        }
     }
     else {
         document.getElementById("divMsgCorrect").style.display = "none";

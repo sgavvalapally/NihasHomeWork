@@ -15,18 +15,41 @@
         Your browser does not support the audio element.
     </audio>
 
+    <audio id="audioCompletedHW">
+        <source src="../../media/audio/CompletedHW.m4a" type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+
     <script type="text/javascript" src="../controller/main.js"></script>
     <script type="text/javascript" src="../controller/randomizer.js"></script>
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <body onload="fnSetFields(null);">
+    <center><label
+            style="width: 100%; font-size: small; font-family: Verdana, Geneva, Tahoma, sans-serif;">NihasHomeWork
+            v1.3.0 &copy;https://github.com/iamsrikanth754/NihasHomeWork</label></center>
     <div id="divHidden" style="display:none;">
+        <label id="lblQlimit">0</label>>
         <label id="lblIsFirstTimeLoaded">False</label>
         <label id="lblTotalQuestions">0</label>
         <label id="lblAnsweredCorrectly">0</label>
+        <label id="lblAS">0</label>
+        <label id="lblAM">0</label>
+        <label id="lblAC">0</label>
+        <label id="lblAT">0</label>
+        <label id="lblSS">0</label>
+        <label id="lblSM">0</label>
+        <label id="lblSC">0</label>
+        <label id="lblST">0</label>
+        <label id="lblMS">0</label>
+        <label id="lblMM">0</label>
+        <label id="lblMC">0</label>
+        <label id="lblMT">0</label>
     </div>
     <div id="divMsgWelcome" class="w3-panel w3-green" style="width: 100%; text-align: center ;padding:0px;">
     </div>
@@ -39,28 +62,28 @@
                     <label for="chkAdditions"> Additions </label>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkAddLvlSimple" name="chkAddLvl" value="Simple">
-                    <label for="chkAddLvlSimple">Simple</label>
-                    <input type="text" id="txtAddLvlSimple"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkAS" name="chkAddLvl" value="Simple"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkAS">Simple</label>
+                    <input type="text" id="txtAS" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkAddLvlMedium" name="chkAddLvl" value="Medium">
-                    <label for="chkAddLvlMedium">Medium</label>
-                    <input type="text" id="txtAddLvlMedium"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkAM" name="chkAddLvl" value="Medium"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkAM">Medium</label>
+                    <input type="text" id="txtAM" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkAddLvlComplex" name="chkAddLvl" value="Complex">
-                    <label for="chkAddLvlComplex">Complex</label>
-                    <input type="text" id="txtAddLvlComplex"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkAC" name="chkAddLvl" value="Complex"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkAC">Complex</label>
+                    <input type="text" id="txtAC" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkAddLvlTough" name="chkAddLvl" value="Tough">
-                    <label for="chkAddLvlTough">Tough</label>
-                    <input type="text" id="txtAddLvlTough"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkAT" name="chkAddLvl" value="Tough"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkAT">Tough</label>
+                    <input type="text" id="txtAT" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
             </tr>
             <tr style="height: 50px;">
@@ -69,28 +92,28 @@
                     <label for="chkSubtractions"> Subtractions </label>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkSubtractLvlSimple" name="chkSubtractLvl" value="Simple">
-                    <label for="chkSubtractLvlSimple">Simple</label>
-                    <input type="text" id="txtSubtractLvlSimple"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkSS" name="chkSubtractLvl" value="Simple"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkSS">Simple</label>
+                    <input type="text" id="txtSS" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkSubtractLvlMedium" name="chkSubtractLvl" value="Medium">
-                    <label for="chkSubtractLvlMedium">Medium</label>
-                    <input type="text" id="txtSubtractLvlMedium"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkSM" name="chkSubtractLvl" value="Medium"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkSM">Medium</label>
+                    <input type="text" id="txtSM" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkSubtractLvlComplex" name="chkSubtractLvl" value="Complex">
-                    <label for="chkSubtractLvlComplex">Complex</label>
-                    <input type="text" id="txtSubtractLvlComplex"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkSC" name="chkSubtractLvl" value="Complex"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkSC">Complex</label>
+                    <input type="text" id="txtSC" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkSubtractLvlTough" name="chkSubtractLvl" value="Tough">
-                    <label for="chkSubtractLvlTough">Tough</label>
-                    <input type="text" id="txtSubtractLvlTough"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkST" name="chkSubtractLvl" value="Tough"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkST">Tough</label>
+                    <input type="text" id="txtST" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
             </tr>
             <tr style="height: 50px;">
@@ -99,28 +122,28 @@
                     <label for="chkMultiplications"> Multiplications </label>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkMultiLvlSimple" name="chkMultiLvl" value="Simple">
-                    <label for="chkMultiLvlSimple">Simple</label>
-                    <input type="text" id="txtMultiLvlSimple"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkMS" name="chkMultiLvl" value="Simple"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkMS">Simple</label>
+                    <input type="text" id="txtMS" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkMultiLvlMedium" name="chkMultiLvl" value="Medium">
-                    <label for="chkMultiLvlMedium">Medium</label>
-                    <input type="text" id="txtMultiLvlMedium"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkMM" name="chkMultiLvl" value="Medium"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkMM">Medium</label>
+                    <input type="text" id="txtMM" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkMultiLvlComplex" name="chkMultiLvl" value="Complex">
-                    <label for="chkMultiLvlComplex">Complex</label>
-                    <input type="text" id="txtMultiLvlComplex"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkMC" name="chkMultiLvl" value="Complex"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkMC">Complex</label>
+                    <input type="text" id="txtMC" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
                 <td>
-                    <input type="checkbox" id="chkMultiLvlTough" name="chkMultiLvl" value="Tough">
-                    <label for="chkMultiLvlTough">Tough</label>
-                    <input type="text" id="txtMultiLvlTough"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    <input type="checkbox" id="chkMT" name="chkMultiLvl" value="Tough"
+                        onclick="fnOnComplexitySelection()">
+                    <label for="chkMT">Tough</label>
+                    <input type="text" id="txtMT" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </td>
             </tr>
         </table>
@@ -131,11 +154,11 @@
     </div>
 
     <div id="divValidationBanner">
-        <div class="w3-panel w3-green" style="align-items: center;" id="divMsgCorrect">
+        <div class="w3-panel w3-green" style="text-align: center;" id="divMsgCorrect">
             <table style="width: 100%;">
                 <tr>
                     <td style="align-items: left; width: 80%;">
-                        <h1>Great Job Nihas ! Try this now </h1>
+                        <h1><label id="lblMsgCorrect"> Great Job Nihas ! Try this now</label></h1>
                     </td>
                     <td style="align-items: right; width: 20%;" id="tdScoreCorrect">
                     </td>
@@ -178,7 +201,10 @@
                 <td><input id="btn3" type="submit" value="3" onclick="fnKeyPadClick(this.id)"></td>
                 <td><input id="btn4" type="submit" value="4" onclick="fnKeyPadClick(this.id)"></td>
                 <td><input id="btn5" type="submit" value="5" onclick="fnKeyPadClick(this.id)"></td>
-                <td><input id="btnX" type="submit" value="<-" onclick="fnKeyPadClick(this.id)"></td>
+                <td>
+                    <button id="btnX" type="button" onclick="fnKeyPadClick(this.id)"><i class="material-icons"
+                            style="font-size:36px">backspace</i></button>
+                </td>
                 <td><input id="btnClear" type="submit" value="Clear" onclick="fnKeyPadClick(this.id)"></td>
             </tr>
             <tr>
