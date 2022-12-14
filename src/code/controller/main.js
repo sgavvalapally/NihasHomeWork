@@ -89,7 +89,7 @@ function fnOnComplexitySelection() {
         document.getElementById("chkSubtractions").checked = false;
 
     if (ischkMS || ischkMM || ischkMC || ischkMT)
-        document.getElementById("chkMultiplications").checked = false;
+        document.getElementById("chkMultiplications").checked = true;
 
     if (!ischkMS && !ischkMM && !ischkMC && !ischkMT)
         document.getElementById("chkMultiplications").checked = false;
