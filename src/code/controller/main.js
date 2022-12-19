@@ -131,7 +131,7 @@ function fnValidateSettings() {
         }
     }
     else if (ischkMultiplications) {
-        if (!(ischkMS || ischkMM || ischkMC || ischischkMTkSubtractLvlTough)) {
+        if (!(ischkMS || ischkMM || ischkMC || ischkMT)) {
             window.alert("Dear Parent, you have not selected the complexity for Mutliplications !");
             vResult = false;
         }
