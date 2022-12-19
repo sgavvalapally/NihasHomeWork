@@ -118,25 +118,33 @@ function fnRandomizer_SetFields(caller_id) {
                 break;
             case "MT":
                 vA = Math.floor(Math.random() * 21);
+                if (vA <= 11) { vA = 11 + Math.floor(Math.random() * 10); }
                 vB = Math.floor(Math.random() * 11);
+                if (vB == 0) { vB = 1; }
                 document.getElementById("lblOperator").innerText = "x";
                 document.getElementById("lblMT").innerText = parseInt(document.getElementById("lblMT").innerText) + 1;
                 break;
             case "MC":
                 vA = Math.floor(Math.random() * 11);
+                if (vA <= 8) { vA = 8 + Math.floor(Math.random() * 3); }
                 vB = Math.floor(Math.random() * 11);
+                if (vB == 0) { vB = 1; }
                 document.getElementById("lblOperator").innerText = "x";
                 document.getElementById("lblMC").innerText = parseInt(document.getElementById("lblMC").innerText) + 1;
                 break;
             case "MM":
-                vA = Math.floor(Math.random() * 6);
+                vA = Math.floor(Math.random() * 8);
+                if (vA <= 5) { vA = 5 + Math.floor(Math.random() * 3); }
                 vB = Math.floor(Math.random() * 11);
+                if (vB == 0) { vB = 1; }
                 document.getElementById("lblOperator").innerText = "x";
                 document.getElementById("lblMM").innerText = parseInt(document.getElementById("lblMM").innerText) + 1;
                 break;
             case "MS":
-                vA = Math.floor(Math.random() * 4);
+                vA = Math.floor(Math.random() * 5);
+                if (vA == 0) { vA = 1; }
                 vB = Math.floor(Math.random() * 11);
+                if (vB == 0) { vB = 1; }
                 document.getElementById("lblOperator").innerText = "x";
                 document.getElementById("lblMS").innerText = parseInt(document.getElementById("lblMS").innerText) + 1;
                 break;
